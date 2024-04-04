@@ -1,0 +1,54 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: "jdbc:h2:mem:library;MODE=MYSQL;NON_KEYWORDS=USER"
+    username: "sa"
+    password: ""
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      #h2 console에 접속할 수 있도록 함
+      enabled: true
+      path: /h2-console
+---
+#스프링부트가 데이터베이스에 붙을 수 있게끔 설정
+spring:
+  #아래의 설정들을 '특정' profile(프로파일)에서 실행됨
+  config:
+    activate:
+      on-profile: dev
+  #스프링 부트가 어떤 데이터베이스를 가리키도록 할건지
+  datasource:
+    #스프링이 붙을 데이터베이스의 주소
+    #jdbc: java database connector
+    #java가 database에 연결할 수 있게끔 하는 프로그램을 이용할 건데, 이때 database
+    #종류는 mysql이고 database는 우리컴퓨터; localhost에 존재하고, 사용할 database
+    #는 library임
+    url: "jdbc:mysql://localhost/library"
+    #접속하기 위한 계정정보, pw
+    username: "root"
+    password: "1234"
+    #driver-class-name: database에 접근할 때 사용할 프로그램
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+
+
+
