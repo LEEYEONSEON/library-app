@@ -37,7 +37,7 @@ spring:
     url: "jdbc:mysql://localhost/library"
     #접속하기 위한 계정정보, pw
     username: "root"
-    password: "1234"
+    password: "Dustjs9853**"
     #driver-class-name: database에 접근할 때 사용할 프로그램
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
